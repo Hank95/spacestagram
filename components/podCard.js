@@ -17,8 +17,11 @@ export default function PodCard({ image }) {
         layout="responsive"
       />
       <section className="mx-5">
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg ">
+          Like
+        </button>
+        <Date dateString={image.date} className="flex justify-self-end " />
         <h2>{image.title}</h2>
-        <Date dateString={image.date} />
         <br />
         <button
           onClick={() => {
