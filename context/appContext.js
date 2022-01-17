@@ -22,7 +22,8 @@ function useSharedState() {
   }
 
   function removePic(likedPic) {
-    let removevedPics = likedPics.filter((pic) => pic.id !== likedPic.id);
+    let removevedPics = likedPics.filter((pic) => pic.date !== likedPic.date);
+    setLikedPics(removevedPics);
   }
 
   return { likedPics, addPic, removePic };

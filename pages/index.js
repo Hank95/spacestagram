@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import PodCard from "../components/podCard";
+import NavBar from "../components/navBar";
+import { useEffect } from "react";
 
 export async function getServerSideProps() {
   const res = await fetch(
@@ -8,14 +10,26 @@ export async function getServerSideProps() {
   );
   const data = await res.json();
 
+  let newNasaPics = await data.map((pic) => ({ ...pic, isLiked: false }));
+
   return {
     props: {
-      nasaPics: data,
+      nasaPics: newNasaPics,
     },
   };
 }
 
 export default function Home({ nasaPics }) {
+  // let newNasaPics = nasaPics.forEach((pic) => {
+  //   return {
+  //     pic: pic,
+  //     isLiked: false,
+  //   };
+  // });
+  // useEffect(()=>{
+
+  // },[])
+  console.log(nasaPics);
   return (
     <div>
       <Head>
@@ -26,11 +40,9 @@ export default function Home({ nasaPics }) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <NavBar />
 
       <main className="mx-10">
-        <h1 className="flex text-3xl font-bold underline p-8 mx-auto min width=300">
-          Spacestagram
-        </h1>
         <div className="flex-col mx-auto max-w-md">
           {nasaPics.map((image) => {
             return <PodCard key={image.date} image={image} />;
