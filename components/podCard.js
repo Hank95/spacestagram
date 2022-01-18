@@ -19,7 +19,6 @@ export default function PodCard({ image }) {
       context.addPic(image);
     }
   }
-  console.log(context.likedPics);
   return (
     <div className="m-10 rounded-lg shadow-md">
       <Image

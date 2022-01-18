@@ -2,13 +2,21 @@ import Head from "next/head";
 import Image from "next/image";
 import PodCard from "../components/podCard";
 import NavBar from "../components/navBar";
-import { useEffect } from "react";
+import { useState } from "react";
+import subMonths from "date-fns/subMonths";
 
 export async function getServerSideProps() {
+  let today = new Date().toISOString().slice(0, 10);
+  let lastMonth = subMonths(new Date(), 1).toISOString().slice(0, 10);
   const res = await fetch(
-    "https://api.nasa.gov/planetary/apod?api_key=l2BazUwA8eSHdFeKmeFBJ93cuV43vAEDdqd610Xc&start_date=2021-12-20&end_date=2021-12-31"
+    `https://api.nasa.gov/planetary/apod?api_key=l2BazUwA8eSHdFeKmeFBJ93cuV43vAEDdqd610Xc&start_date=${lastMonth}&end_date=${today}`
   );
   const data = await res.json();
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
 
   let newNasaPics = await data.map((pic) => ({ ...pic, isLiked: false }));
 
@@ -20,16 +28,9 @@ export async function getServerSideProps() {
 }
 
 export default function Home({ nasaPics }) {
-  // let newNasaPics = nasaPics.forEach((pic) => {
-  //   return {
-  //     pic: pic,
-  //     isLiked: false,
-  //   };
-  // });
-  // useEffect(()=>{
+  const [currentPhotos, setCurrentPhotos] = useState(nasaPics);
+  let today = new Date().toISOString().slice(0, 10);
 
-  // },[])
-  console.log(nasaPics);
   return (
     <div>
       <Head>
@@ -44,7 +45,7 @@ export default function Home({ nasaPics }) {
 
       <main className="mx-10">
         <div className="flex-col mx-auto max-w-md">
-          {nasaPics.map((image) => {
+          {currentPhotos.map((image) => {
             return <PodCard key={image.date} image={image} />;
           })}
         </div>
