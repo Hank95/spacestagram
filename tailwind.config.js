@@ -7,9 +7,9 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-  purge: [
-    // Use *.tsx if using TypeScript
-    "./pages/**/*.js",
-    "./components/**/*.js",
-  ],
+  // purge: [
+  //   // Use *.tsx if using TypeScript
+  //   "./pages/**/*.js",
+  //   "./components/**/*.js",
+  // ],
 };

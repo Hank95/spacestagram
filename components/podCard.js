@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import Date from "./date";
+import FormateDate from "./date";
 import { useAppContext } from "../context/appContext";
 
 export default function PodCard({ image }) {
@@ -36,7 +36,10 @@ export default function PodCard({ image }) {
         >
           {like ? "Unlike" : "Like"}
         </button>
-        <Date dateString={image.date} className="flex justify-self-end " />
+        <FormateDate
+          dateString={image.date}
+          className="flex justify-self-end "
+        />
         <h2>{image.title}</h2>
         <br />
         <button
