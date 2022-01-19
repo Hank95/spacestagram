@@ -89,7 +89,6 @@ export default function Home({ nasaPics }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <NavBar />
-
       <main className="mx-10">
         <div className="flex-col mx-auto max-w-md place-items-center">
           <div className="flex flex-row justify-center font-semibold rounded-md shadow-md h-10">
@@ -125,21 +124,7 @@ export default function Home({ nasaPics }) {
           )}
         </div>
       </main>
-
-      <Footer />
-
-      {/* <footer className="max-h-40">
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
+      <Footer />-
     </div>
   );
 }

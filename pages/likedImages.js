@@ -24,9 +24,8 @@ export default function LikedImages() {
           Liked Images
         </h1>
         {context.likedPics.length > 0 ? null : (
-          // eslint-disable-next-line react/no-unescaped-entities
           <h2 className="text-xl font-extrabold mx-60">
-            You haven't liked any images yet.
+            You havent liked any images yet.
           </h2>
         )}
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
