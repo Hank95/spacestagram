@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import PodCard from "../components/podCard";
 import NavBar from "../components/navBar";
+import Footer from "../components/footer";
 import { useState } from "react";
 import {
   lastDayOfMonth,
@@ -100,7 +101,7 @@ export default function Home({ nasaPics }) {
             </button>
             <div className="grow m-1.5 text-center">
               {/* <FormateDate dateString={today} /> */}
-              {format(month, "MMMM yyyy")}
+              {format(month, "MMMM, yyyy")}
             </div>
             <button
               disabled={getMonth(month) === getMonth(new Date())}
@@ -111,7 +112,7 @@ export default function Home({ nasaPics }) {
             </button>
           </div>
           {isLoading ? (
-            <div className="flex flex-col justify-center items-center">
+            <div className="flex flex-col justify-center items-center my-10">
               <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto animate-spin">
                 <div className="w-4 h-4 bg-gray-500 rounded-full mx-auto"></div>
               </div>
@@ -125,7 +126,9 @@ export default function Home({ nasaPics }) {
         </div>
       </main>
 
-      <footer className="max-h-40">
+      <Footer />
+
+      {/* <footer className="max-h-40">
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
@@ -136,7 +139,7 @@ export default function Home({ nasaPics }) {
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
-      </footer>
+      </footer> */}
     </div>
   );
 }
