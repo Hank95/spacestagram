@@ -1,4 +1,4 @@
-##Check out [Spacestagram](https://spacestagram-hank95.vercel.app)
+## Check out [Spacestagram](https://spacestagram-hank95.vercel.app)
 
 Built with Next.js, Tailwind CSS, NASA Picture of the Day API, and utilizing Reacts Context API for Data management.
 
